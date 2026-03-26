@@ -253,7 +253,7 @@ export default function Home() {
             </div>
 
             {/* ── Sticky zone: Gallery freezes, Page 2 slides up over it ── */}
-            <div ref={outerRef} style={{ height: outerHeight }}>
+            <div ref={outerRef} style={{ height: outerHeight, background: 'var(--bg-cream)' }}>
 
                 {/* Layer 1 — Gallery, sticky, vertically centered, NO JS animation */}
                 <div style={{ position: 'sticky', top: 0, height: '100vh', zIndex: 1, display: 'flex', alignItems: 'center' }}>
