@@ -49,14 +49,14 @@ export default function Navbar() {
     }
 
     return (
-        <header className="relative flex items-center justify-between px-6 py-4 border-b border-gray-100 text-sm bg-white text-[#111111] font-sans">
+        <header className="relative flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 text-sm bg-white text-[#111111] font-sans">
             {/* Logo */}
             <div className="font-bold text-lg tracking-tight flex-shrink-0">
                 <Link href="/">Souvenote</Link>
             </div>
 
             {/* Nav links — center, with hover subtext */}
-            <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+            <nav className="hidden lg:flex items-center gap-4 xl:gap-8 absolute left-1/2 -translate-x-1/2">
                 {NAV_LINKS.map((link) => (
                     <div
                         key={link.label}

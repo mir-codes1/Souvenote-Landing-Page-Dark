@@ -167,7 +167,7 @@ export default function Home() {
                         linear-gradient(175deg, #FDF8F4 0%, #F4E2D8 40%, #E8CFC1 100%)
                     `,
                 }}>
-                <div className="absolute top-[8%] right-[5%] w-[300px] h-[220px] opacity-[0.12] rotate-12 pointer-events-none">
+                <div className="absolute top-[8%] right-[5%] w-[180px] sm:w-[240px] lg:w-[300px] h-auto opacity-[0.12] rotate-12 pointer-events-none">
                     <svg viewBox="0 0 300 220" fill="none" stroke="var(--accent-umber)" strokeWidth="1">
                         <rect x="10" y="10" width="280" height="200" rx="8" />
                         <path d="M10 10 L150 120 L290 10" />
@@ -175,7 +175,7 @@ export default function Home() {
                         <path d="M290 210 L180 120" />
                     </svg>
                 </div>
-                <div className="absolute top-[75%] left-[5%] w-[300px] h-[220px] opacity-[0.12] -rotate-30 pointer-events-none">
+                <div className="absolute top-[75%] left-[5%] w-[180px] sm:w-[240px] lg:w-[300px] h-auto opacity-[0.12] -rotate-30 pointer-events-none hidden sm:block">
                     <svg viewBox="0 0 300 220" fill="none" stroke="var(--accent-umber)" strokeWidth="1">
                         <rect x="10" y="10" width="280" height="200" rx="8" />
                         <path d="M10 10 L150 120 L290 10" />
@@ -183,24 +183,24 @@ export default function Home() {
                         <path d="M290 210 L180 120" />
                     </svg>
                 </div>
-                <div className="absolute top-[-10%] left-[60%] w-[600px] h-[600px] rounded-full opacity-[0.08]"
+                <div className="absolute top-[-10%] left-[60%] w-[300px] sm:w-[450px] lg:w-[600px] h-[300px] sm:h-[450px] lg:h-[600px] rounded-full opacity-[0.08]"
                     style={{ background: 'radial-gradient(circle, var(--accent-champagne) 0%, transparent 65%)' }} />
 
-                <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 py-16 md:py-0">
-                    <div className="flex flex-col md:flex-row items-center gap-10 md:gap-6 lg:gap-10">
+                <div className="relative z-10 w-full max-w-[1280px] mx-auto px-5 sm:px-10 lg:px-16 py-12 sm:py-16 md:py-0">
+                    <div className="flex flex-col md:flex-row items-center gap-8 sm:gap-10 md:gap-6 lg:gap-10">
                         <div className="flex-[1.4] text-center md:text-left md:pt-4">
-                            <h1 className={`${lobster.className} reveal-up delay-2 text-[clamp(3.5rem,5vw,7rem)] leading-[0.9] tracking-[-0.03em] text-[var(--accent-umber)]`}>
+                            <h1 className={`${lobster.className} reveal-up delay-2 text-[clamp(2.8rem,5vw,7rem)] leading-[0.9] tracking-[-0.03em] text-[var(--accent-umber)]`}>
                                 <span className={`${cormorant.className} italic`}>A card</span> <span className="gold-underline" style={{ fontSize: '0.91em', fontWeight: 100 }}>worth</span><br /><span className={`${cormorant.className} italic`}>keeping</span>
                             </h1>
                             <p className={`${poppins.className} font-extralight reveal-up delay-3 text-[clamp(0.95rem,2vw,1.15rem)] text-[var(--text-secondary)] mt-7 max-w-[500px] mx-auto md:mx-0 leading-relaxed tracking-[0.03em]`}>
                                 Generate personalized cards and custom songs. Because the card you send should be as unique as they are.
                             </p>
-                            <div className="reveal-up delay-4 mt-12 flex flex-col sm:flex-row items-center md:items-start gap-4">
-                                <Link href="/signup" className={`${poppins.className} font-bold btn-matte inline-flex items-center gap-0 px-12 py-4.5 rounded-full text-[14px] tracking-[0.06em] uppercase shadow-lg`}>
+                            <div className="reveal-up delay-4 mt-8 sm:mt-12 flex flex-col sm:flex-row items-center md:items-start gap-4">
+                                <Link href="/signup" className={`${poppins.className} font-bold btn-matte inline-flex items-center gap-0 px-8 sm:px-12 py-3.5 sm:py-4.5 rounded-full text-[13px] sm:text-[14px] tracking-[0.06em] uppercase shadow-lg`}>
                                     Start for Free
                                     <span className="btn-arrow translate-y-[0.5px]">→</span>
                                 </Link>
-                                <Link href="/login" className={`${poppins.className} font-semibold inline-block px-8 py-4 rounded-full text-[13px] text-[var(--text-secondary)] border-2 border-[var(--accent-gold)]/40 hover:border-[var(--accent-gold)] hover:bg-[var(--accent-champagne)]/10 transition-all duration-400`}>
+                                <Link href="/login" className={`${poppins.className} font-semibold inline-block px-6 sm:px-8 py-3 sm:py-4 rounded-full text-[12px] sm:text-[13px] text-[var(--text-secondary)] border-2 border-[var(--accent-gold)]/40 hover:border-[var(--accent-gold)] hover:bg-[var(--accent-champagne)]/10 transition-all duration-400`}>
                                     Log In
                                 </Link>
                             </div>
@@ -209,8 +209,8 @@ export default function Home() {
                             </p>
                         </div>
 
-                        <div className="card-stack reveal-scale delay-4 hidden md:flex flex-1 flex-shrink-0 relative w-full max-w-[380px] h-[440px] items-center justify-center">
-                            <div className="gentle-bob absolute w-[260px] h-[373px] rotate-[-9deg] translate-x-0 translate-y-5" style={{ animationDelay: '0.5s' }}>
+                        <div className="card-stack reveal-scale delay-4 hidden md:flex flex-1 flex-shrink-0 relative w-full max-w-[320px] lg:max-w-[380px] h-[380px] lg:h-[440px] items-center justify-center">
+                            <div className="gentle-bob absolute w-[220px] lg:w-[260px] h-[316px] lg:h-[373px] rotate-[-9deg] translate-x-0 translate-y-5" style={{ animationDelay: '0.5s' }}>
                                 <div className="back-card-inner w-full h-full rounded-2xl"
                                     style={{ background: 'linear-gradient(150deg, #D4BB7E,rgb(46, 43, 37))', boxShadow: '0 24px 64px rgba(74,59,34,0.58)' }}>
                                     <div className="absolute inset-3 rounded-xl border border-white/25" />
@@ -218,14 +218,14 @@ export default function Home() {
                                     <div className="stamp-corner stamp-corner-br" />
                                 </div>
                             </div>
-                            <div className="gentle-bob absolute w-[260px] h-[373px] rotate-[5deg] -translate-x-2">
+                            <div className="gentle-bob absolute w-[220px] lg:w-[260px] h-[316px] lg:h-[373px] rotate-[5deg] -translate-x-2">
                                 <div className="hover-3d front-3d w-full h-full">
                                     <div className="w-full h-full rounded-2xl"
                                         style={{ background: 'linear-gradient(150deg, #FDF8F4, #F4E2D8)', boxShadow: '0 28px 64px rgba(74,59,34,0.22)' }}>
                                         <div className="card-front-content absolute inset-3 rounded-xl border border-[var(--accent-gold)]/15 flex flex-col items-center justify-center gap-4">
-                                            <Image src="/SecondaryLogo.png" alt="SouveNote" width={260} height={260} style={{ width: '260px', height: '260px', objectFit: 'contain' }} />
+                                            <Image src="/SecondaryLogo.png" alt="SouveNote" width={260} height={260} className="w-[200px] lg:w-[260px] h-[200px] lg:h-[260px] object-contain" />
                                             <div className="flex flex-col items-center gap-4 relative -top-8">
-                                                <div className={`${lobster.className} text-[26px] text-[var(--accent-umber)]`}>For You</div>
+                                                <div className={`${lobster.className} text-[22px] lg:text-[26px] text-[var(--accent-umber)]`}>For You</div>
                                                 <div className="w-20 h-[2px] rounded-full" style={{ background: 'linear-gradient(to right, transparent, var(--accent-gold), transparent)' }} />
                                                 <div className="flex gap-1.5">
                                                     {[...Array(5)].map((_, i) => (
@@ -274,11 +274,11 @@ export default function Home() {
                     >
 
                         {/* ── Video Section ── */}
-                        <section className="noise-overlay relative py-20 sm:py-28 overflow-hidden rounded-t-[3rem]"
+                        <section className="noise-overlay relative py-16 sm:py-20 lg:py-28 overflow-hidden rounded-t-[2rem] sm:rounded-t-[3rem]"
                             style={{ background: 'linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-deep-end) 100%)', boxShadow: '0 -8px 20px rgba(0,0,0,0.4)' }}>
-                            <div className="absolute top-[30%] left-[50%] -translate-x-1/2 w-[800px] h-[400px] opacity-[0.06]"
+                            <div className="absolute top-[30%] left-[50%] -translate-x-1/2 w-[400px] sm:w-[600px] lg:w-[800px] h-[200px] sm:h-[300px] lg:h-[400px] opacity-[0.06]"
                                 style={{ background: 'radial-gradient(ellipse, var(--accent-gold), transparent 70%)' }} />
-                            <div className="relative z-10 px-6 sm:px-10">
+                            <div className="relative z-10 px-5 sm:px-10">
                                 <div className="text-center mb-12">
                                     <p className={`${poppins.className} section-label text-[var(--accent-gold)]/70 mb-3 border border-[var(--accent-gold)]/65 rounded px-4 py-0.5 inline-block`}>Watch</p>
                                     <h2 className={`${lobster.className} text-[clamp(2.2rem,5vw,3.8rem)] text-[var(--accent-champagne)] leading-tight`}>
@@ -320,7 +320,7 @@ export default function Home() {
                         </section>
 
                         {/* ── How It Works ── */}
-                        <section className="relative py-12 sm:py-16 px-6 sm:px-10 overflow-hidden"
+                        <section className="relative py-12 sm:py-16 px-5 sm:px-10 overflow-hidden"
                             style={{
                                 background: `
                                     radial-gradient(ellipse 60% 50% at 50% 30%, rgba(238,221,170,0.15) 0%, transparent 60%),
@@ -328,7 +328,7 @@ export default function Home() {
                                 `,
                             }}>
                             <div className="relative z-10 max-w-[1100px] mx-auto">
-                                <div className="text-center mb-[79px] sm:mb-[111px]">
+                                <div className="text-center mb-12 sm:mb-20 lg:mb-24">
                                     <p className={`${poppins.className} section-label text-[var(--accent-bronze)] mb-3`}>How It Works</p>
                                     <h2 ref={stepsHeadingRef} className={`${cormorant.className} italic text-[clamp(2.2rem,5vw,3.8rem)] text-[var(--accent-umber)] leading-tight`}>Three. Simple. Steps.</h2>
                                     <p className={`${poppins.className} font-extralight text-[var(--text-muted)] mt-3 text-[15px] tracking-wide`}>
@@ -336,7 +336,7 @@ export default function Home() {
                                     </p>
                                 </div>
                                 <div ref={stepsRef} className="relative" style={{ perspective: '1000px' }}>
-                                    <motion.div className="relative flex flex-col md:flex-row gap-6 md:gap-5 items-stretch" style={{ rotateX: stepsRotateX, transformOrigin: 'top center' }}>
+                                    <motion.div className="relative flex flex-col md:flex-row gap-5 md:gap-4 lg:gap-5 items-stretch" style={{ rotateX: stepsRotateX, transformOrigin: 'top center' }}>
                                     <div className="timeline-line hidden md:block" />
                                         {[
                                             {
@@ -364,7 +364,7 @@ export default function Home() {
                                             <div key={n} className={`flex-1 relative z-10 group ${mt}`}>
                                                 <div className="glass-card rounded-t-3xl rounded-b-none p-8 sm:p-10 h-full relative">
                                                     <GlowingEffect spread={28} proximity={48} inactiveZone={0.01} borderWidth={1.5} />
-                                                    <div className={`${poppins.className} absolute top-[-10px] right-4 text-[120px] sm:text-[160px] font-black leading-none text-[var(--accent-umber)]/[0.05] select-none pointer-events-none`}>{n}</div>
+                                                    <div className={`${poppins.className} absolute top-[-10px] right-4 text-[80px] sm:text-[120px] md:text-[100px] lg:text-[160px] font-black leading-none text-[var(--accent-umber)]/[0.05] select-none pointer-events-none`}>{n}</div>
                                                     <div className="relative z-10">
                                                         <div className="w-14 h-14 rounded-2xl mb-6 flex items-center justify-center" style={{ background: bg }}>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -383,7 +383,7 @@ export default function Home() {
                         </section>
 
                         {/* ── FAQ ── */}
-                        <section className="pt-[3.25rem] sm:pt-[4.25rem] pb-28 sm:pb-40 px-6 sm:px-10"
+                        <section className="pt-10 sm:pt-14 lg:pt-16 pb-20 sm:pb-28 lg:pb-40 px-5 sm:px-10"
                             style={{ background: 'linear-gradient(180deg, var(--bg-cream) 0%, #fff 50%, var(--bg-cream) 100%)' }}>
                             <div className="max-w-[1100px] mx-auto">
                                 <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
@@ -432,7 +432,7 @@ export default function Home() {
                 style={{ height: footerSpacerHeight, background: 'var(--bg-cream)', overflow: 'hidden' }}
             >
                 <div className="h-[200px] flex items-center justify-center pt-6">
-                    <Image src="/MainLogo.png" alt="Souvenote" width={800} height={280} className="w-[800px] max-w-[95vw]" />
+                    <Image src="/MainLogo.png" alt="Souvenote" width={800} height={280} className="w-full max-w-[800px] px-4" />
                 </div>
             </motion.div>
 
@@ -451,12 +451,12 @@ export default function Home() {
             </div>
 
             {/* ── Footer ── */}
-            <footer className="relative overflow-hidden pt-20 pb-10 px-6 sm:px-10"
+            <footer className="relative overflow-hidden pt-14 sm:pt-20 pb-8 sm:pb-10 px-5 sm:px-10"
                 style={{ background: 'linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-deep-end) 100%)' }}>
                 <div className="absolute top-0 left-0 right-0 h-[2px]"
                     style={{ background: 'linear-gradient(to right, transparent, var(--accent-gold), transparent)' }} />
                 <div className="max-w-[1200px] mx-auto">
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 lg:gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8">
                         <div>
                             <h4 className={`${poppins.className} font-black text-[13px] uppercase tracking-[0.25em] text-[var(--accent-gold)] mb-5`}>Company</h4>
                             <div className="flex flex-col gap-3">

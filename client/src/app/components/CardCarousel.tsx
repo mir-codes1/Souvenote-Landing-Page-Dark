@@ -205,7 +205,7 @@ export default function CardCarousel({
             <motion.button
                 onClick={() => scroll('left')}
                 aria-label="Previous cards"
-                className="absolute left-[-1.125rem] sm:left-[-1.5rem] top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 border border-[var(--accent-gold)]/20 hover:border-[var(--accent-gold)]/50 group"
+                className="absolute left-[-0.75rem] sm:left-[-1.5rem] top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 border border-[var(--accent-gold)]/20 hover:border-[var(--accent-gold)]/50 group"
                 style={ARROW_STYLE}
                 initial={false}
                 animate={{ opacity: phaseAComplete ? 1 : 0 }}
@@ -334,7 +334,7 @@ export default function CardCarousel({
             <motion.button
                 onClick={() => scroll('right')}
                 aria-label="Next cards"
-                className="absolute right-[-1.125rem] sm:right-[-1.5rem] top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 border border-[var(--accent-gold)]/20 hover:border-[var(--accent-gold)]/50 group"
+                className="absolute right-[-0.75rem] sm:right-[-1.5rem] top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 border border-[var(--accent-gold)]/20 hover:border-[var(--accent-gold)]/50 group"
                 style={ARROW_STYLE}
                 initial={false}
                 animate={{ opacity: phaseAComplete ? 1 : 0 }}

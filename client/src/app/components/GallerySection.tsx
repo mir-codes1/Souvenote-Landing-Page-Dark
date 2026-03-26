@@ -67,9 +67,9 @@ export default function GallerySection({
     return (
         <section
             ref={sectionRef}
-            className="pt-24 sm:pt-36 pb-24 sm:pb-46 px-4 sm:px-8 lg:px-18 max-w-[81.25rem] mx-auto"
+            className="pt-16 sm:pt-24 lg:pt-36 pb-16 sm:pb-24 lg:pb-36 px-4 sm:px-8 lg:px-18 max-w-[81.25rem] mx-auto"
         >
-            <div className="flex flex-col lg:flex-row gap-8 lg:gap-25 items-start">
+            <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-25 items-start">
                 {/* ── Left — section header with animated gold line ── */}
                 <div className="relative pl-6 lg:w-[17.5rem] lg:flex-shrink-0 lg:pt-4 text-center lg:text-left">
                     {/* Gold line — real DOM element (replaces ::before) */}
@@ -94,7 +94,7 @@ export default function GallerySection({
 
                     {/* Heading — staggered word entrance from behind the line */}
                     <h2
-                        className={`${lobsterClassName} text-[clamp(4.9rem,5vw,3.8rem)] text-[var(--accent-umber)] leading-[1.07] overflow-hidden`}
+                        className={`${lobsterClassName} text-[clamp(2.4rem,5vw,4.9rem)] text-[var(--accent-umber)] leading-[1.07] overflow-hidden`}
                     >
                         <span className={`${cormorantClassName} italic`}>
                             {HEADING_WORDS.map((word, i) => (
