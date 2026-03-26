@@ -431,8 +431,8 @@ export default function Home() {
             <motion.div
                 style={{ height: footerSpacerHeight, background: 'var(--bg-cream)', overflow: 'hidden' }}
             >
-                <div className="h-[200px] flex items-center justify-center pt-6">
-                    <Image src="/MainLogo.png" alt="Souvenote" width={800} height={280} className="w-full max-w-[800px] px-4" />
+                <div className="h-[215px] flex items-center justify-center pt-6">
+                    <Image src="/MainLogo.png" alt="Souvenote" width={800} height={280} className="w-full max-w-[800px] px-4 scale-[0.9]" />
                 </div>
             </motion.div>
 

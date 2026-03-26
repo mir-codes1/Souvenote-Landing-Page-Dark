@@ -575,6 +575,30 @@
   .h-\[200px\] {
     height: 200px;
   }
+  .h-\[210px\] {
+    height: 210px;
+  }
+  .h-\[215px\] {
+    height: 215px;
+  }
+  .h-\[220px\] {
+    height: 220px;
+  }
+  .h-\[225px\] {
+    height: 225px;
+  }
+  .h-\[230px\] {
+    height: 230px;
+  }
+  .h-\[235px\] {
+    height: 235px;
+  }
+  .h-\[240px\] {
+    height: 240px;
+  }
+  .h-\[280px\] {
+    height: 280px;
+  }
   .h-\[300px\] {
     height: 300px;
   }
@@ -802,6 +826,18 @@
   .translate-y-\[0\.5px\] {
     --tw-translate-y: 0.5px;
     translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .scale-\[0\.5\] {
+    scale: 0.5;
+  }
+  .scale-\[0\.8\] {
+    scale: 0.8;
+  }
+  .scale-\[0\.9\] {
+    scale: 0.9;
+  }
+  .scale-\[1\] {
+    scale: 1;
   }
   .-rotate-30 {
     rotate: calc(30deg * -1);
@@ -2791,6 +2827,7 @@
   justify-content: center;
   gap: 12px;
   padding: 2rem 0;
+  background: var(--bg-cream);
 }
 .ornament-divider::before,
 .ornament-divider::after {

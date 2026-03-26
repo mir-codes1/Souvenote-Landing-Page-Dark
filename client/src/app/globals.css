@@ -208,6 +208,7 @@
   justify-content: center;
   gap: 12px;
   padding: 2rem 0;
+  background: var(--bg-cream);
 }
 .ornament-divider::before,
 .ornament-divider::after {
