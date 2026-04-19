@@ -3,11 +3,14 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { Poppins, Cormorant_Garamond } from 'next/font/google';
 import PricingModal from '../components/PricingModal';
 
-// Simulate credit balance — swap this with real auth/credits context when backend is ready
-const USER_CREDITS = { images: 0, songs: 0 };
+const poppins = Poppins({ weight: ['200', '400', '600', '700'], subsets: ['latin'], display: 'swap' });
+const cormorant = Cormorant_Garamond({ weight: ['300', '400'], subsets: ['latin'], display: 'swap' });
 
+// Simulate credit balance — swap with real auth/credits context when backend is ready
+const USER_CREDITS = { images: 0, songs: 0 };
 const hasCredits = USER_CREDITS.images > 0 || USER_CREDITS.songs > 0;
 
 const OPTIONS = [
@@ -51,73 +54,84 @@ export default function OptionsPage() {
         <>
             {showPricing && <PricingModal onClose={handleModalClose} />}
 
-            <main className="min-h-[calc(100vh-3.5625rem)] flex flex-col items-center justify-center px-6 py-16 bg-white">
+            <main className={`${poppins.className} min-h-[calc(100vh-3.5625rem)] flex flex-col items-center justify-center px-6 py-16`}
+                style={{ background: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
                 <div className="w-full max-w-3xl space-y-10">
 
-                    {/* Heading */}
                     <div className="text-center space-y-2">
-                        <h1 className="text-3xl font-bold">What would you like to do?</h1>
-                        <p className="text-gray-500 text-sm">Pick an option to get started.</p>
+                        <h1 className={`${cormorant.className} italic text-3xl font-light`} style={{ color: 'var(--text-primary)' }}>
+                            What would you like to do?
+                        </h1>
+                        <p className="font-extralight text-sm" style={{ color: 'var(--text-secondary)' }}>
+                            Pick an option to get started.
+                        </p>
                     </div>
 
-                    {/* Two large portrait option buttons */}
                     <div className="grid grid-cols-2 gap-6">
                         {OPTIONS.map((opt) => (
                             <button
                                 key={opt.label}
                                 onClick={() => handleOptionClick(opt.href)}
-                                className="group flex flex-col rounded-2xl border-2 border-gray-200 hover:border-black transition-all text-left overflow-hidden"
-                                style={{ aspectRatio: '5/7' }}
+                                className="group flex flex-col rounded-2xl border-2 transition-all text-left overflow-hidden"
+                                style={{
+                                    aspectRatio: '5/7',
+                                    background: 'var(--bg-warm)',
+                                    borderColor: 'rgba(183,110,121,0.2)',
+                                }}
+                                onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--accent-bronze)')}
+                                onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'rgba(183,110,121,0.2)')}
                             >
-                                {/* Visual area */}
-                                <div className="flex-1 bg-gray-50 flex items-center justify-center p-4">
+                                <div className="flex-1 flex items-center justify-center p-4"
+                                    style={{ background: 'var(--bg-cream)' }}>
                                     {opt.thumbnails ? (
-                                        /* Mini card thumbnails grid */
                                         <div className="grid grid-cols-2 gap-2 w-full max-w-[11.25rem]">
                                             {opt.thumbnails.map((name) => (
                                                 <div
                                                     key={name}
-                                                    className="aspect-[5/7] bg-white border border-gray-200 rounded-lg flex items-end p-1.5 shadow-sm"
+                                                    className="aspect-[5/7] rounded-lg flex items-end p-1.5"
+                                                    style={{ background: 'var(--bg-warm)', border: '1px solid rgba(183,110,121,0.15)' }}
                                                 >
-                                                    <span className="text-[0.5rem] text-gray-400 font-medium leading-tight">
+                                                    <span className="text-[0.5rem] font-medium leading-tight" style={{ color: 'var(--text-muted)' }}>
                                                         {name}
                                                     </span>
                                                 </div>
                                             ))}
                                         </div>
                                     ) : (
-                                        /* Build My Card visual */
-                                        <div className="flex flex-col items-center gap-3 text-gray-400">
-                                            <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-gray-200 transition-colors">
+                                        <div className="flex flex-col items-center gap-3" style={{ color: 'var(--text-muted)' }}>
+                                            <div className="w-16 h-16 rounded-full flex items-center justify-center transition-colors"
+                                                style={{ background: 'var(--bg-warm)', border: '1px solid rgba(183,110,121,0.15)' }}>
                                                 <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
                                                 </svg>
                                             </div>
-                                            <span className="text-xs text-gray-400">AI-powered</span>
+                                            <span className="text-xs" style={{ color: 'var(--text-muted)' }}>AI-powered</span>
                                         </div>
                                     )}
                                 </div>
 
-                                {/* Label + description */}
-                                <div className="px-5 py-4 bg-white border-t border-gray-100 space-y-1">
-                                    <p className="font-semibold text-sm group-hover:text-black transition-colors">
+                                <div className="px-5 py-4 space-y-1"
+                                    style={{ background: 'var(--bg-warm)', borderTop: '1px solid rgba(183,110,121,0.1)' }}>
+                                    <p className="font-semibold text-sm transition-colors group-hover:text-[var(--accent-bronze)]"
+                                        style={{ color: 'var(--text-primary)' }}>
                                         {opt.label}
                                     </p>
-                                    <p className="text-xs text-gray-500 leading-relaxed">{opt.description}</p>
+                                    <p className="text-xs leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                                        {opt.description}
+                                    </p>
                                 </div>
                             </button>
                         ))}
                     </div>
 
-                    {/* My Cards & Songs link */}
                     <div className="text-center">
                         <Link
                             href="/my-cards"
-                            className="text-sm text-gray-500 hover:text-black transition-colors underline underline-offset-4"
+                            className="text-sm transition-colors underline underline-offset-4 text-[var(--text-muted)] hover:text-[var(--accent-bronze)]"
                         >
                             My Cards &amp; Songs
                         </Link>
-                        <p className="text-xs text-gray-400 mt-1">View your saved designs and songs</p>
+                        <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>View your saved designs and songs</p>
                     </div>
                 </div>
             </main>

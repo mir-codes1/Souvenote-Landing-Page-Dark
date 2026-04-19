@@ -2,6 +2,11 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { Cormorant_Garamond, Poppins } from 'next/font/google';
+
+const cormorant = Cormorant_Garamond({ weight: ['300', '400', '600'], subsets: ['latin'], display: 'swap' });
+const poppins = Poppins({ weight: ['200', '400', '600'], subsets: ['latin'], display: 'swap' });
 
 function EyeIcon({ open }: { open: boolean }) {
   if (open) {
@@ -20,10 +25,7 @@ function EyeIcon({ open }: { open: boolean }) {
 }
 
 export default function LoginPage() {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,43 +39,55 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col font-sans text-[#111111]">
-      
-      <header className="flex items-center justify-between px-6 py-4 border-b border-gray-100 text-sm">
+    <div className="min-h-screen flex flex-col font-sans" style={{ background: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
+
+      <header className={`${poppins.className} flex items-center justify-between px-6 py-4 text-sm`}
+        style={{ background: 'var(--bg-warm)', borderBottom: '1px solid rgba(183,110,121,0.12)' }}>
         <div className="font-bold text-lg tracking-tight">
-          <Link href="/">Souvenote</Link>
+          <Link href="/" className="transition-colors text-[var(--text-primary)] hover:text-[var(--accent-bronze)]">
+            Souvenote
+          </Link>
         </div>
       </header>
 
-      {/* MAIN CONTENT - LOG IN FORM */}
-      <main className="flex-grow flex items-center justify-center px-4 py-12 bg-gray-50">
-        <div className="w-full max-w-[25rem] bg-white p-8 border border-gray-100 rounded-xl shadow-sm">
-          
-          {/* Title and Subtitle */}
+      <main className="flex-grow flex items-center justify-center px-4 py-12" style={{ background: 'var(--bg-primary)' }}>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="w-full max-w-[25rem] p-8 rounded-xl"
+          style={{ background: 'var(--bg-warm)', border: '1px solid rgba(183,110,121,0.2)', boxShadow: '0 24px 64px rgba(0,0,0,0.5)' }}
+        >
           <div className="text-center mb-8">
-            <h1 className="text-[1.75rem] font-semibold mb-2">Log in</h1>
-            <p className="text-gray-500 text-sm">Access your cards and continue creating</p>
+            <h1 className={`${cormorant.className} italic text-[1.75rem] font-light mb-2`} style={{ color: 'var(--text-primary)' }}>
+              Log in
+            </h1>
+            <p className={`${poppins.className} font-extralight text-sm`} style={{ color: 'var(--text-secondary)' }}>
+              Access your cards and continue creating
+            </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Email Address Input */}
             <div>
-              <label className="block text-xs font-medium text-gray-700 mb-1.5" htmlFor="email">Email address</label>
-              <input 
-                type="email" 
-                id="email" 
+              <label className={`${poppins.className} block text-xs font-medium mb-1.5`} style={{ color: 'var(--text-secondary)' }} htmlFor="email">
+                Email address
+              </label>
+              <input
+                type="email"
+                id="email"
                 name="email"
-                placeholder="Enter your email" 
+                placeholder="Enter your email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-3 py-2.5 border border-gray-200 rounded-md text-sm placeholder-gray-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-colors"
+                className={`${poppins.className} input-dark w-full px-3 py-2.5 rounded-md text-sm`}
                 required
               />
             </div>
 
-            {/* Password Input */}
             <div>
-              <label className="block text-xs font-medium text-gray-700 mb-1.5" htmlFor="password">Password</label>
+              <label className={`${poppins.className} block text-xs font-medium mb-1.5`} style={{ color: 'var(--text-secondary)' }} htmlFor="password">
+                Password
+              </label>
               <div className="relative">
                 <input
                   type={showPassword ? 'text' : 'password'}
@@ -83,40 +97,37 @@ export default function LoginPage() {
                   value={formData.password}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2.5 pr-10 border border-gray-200 rounded-md text-sm placeholder-gray-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-colors"
+                  className={`${poppins.className} input-dark w-full px-3 py-2.5 pr-10 rounded-md text-sm`}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((v) => !v)}
                   aria-label={showPassword ? 'Hide password' : 'Show password'}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 transition-colors text-[var(--text-muted)] hover:text-[var(--text-secondary)]"
                 >
                   <EyeIcon open={showPassword} />
                 </button>
               </div>
             </div>
 
-            {/* Forgot Password Link */}
-            <div className="text-sm font-medium">
-              <Link href="/forgot-password" className="text-gray-500 hover:text-[#111111] transition-colors">
+            <div className={`${poppins.className} text-sm font-medium`}>
+              <Link href="/forgot-password" className="transition-colors text-[var(--text-muted)] hover:text-[var(--accent-bronze)]">
                 Forgot password?
               </Link>
             </div>
 
-            {/* Log In Button */}
-            <button 
-              type="submit" 
-              className="w-full bg-[#111111] text-white py-3 rounded-md text-sm font-medium hover:bg-gray-800 transition-colors mt-2"
-            >
+            <button type="submit" className="btn-matte w-full py-3 rounded-md text-sm font-medium mt-2">
               Log in
             </button>
           </form>
 
-          {/* Sign Up Link */}
-          <div className="text-center mt-6 text-sm text-gray-500">
-            Don't have an account? <Link href="/signup" className="text-[#111111] font-medium hover:underline">Sign up</Link>
+          <div className={`${poppins.className} text-center mt-6 text-sm`} style={{ color: 'var(--text-muted)' }}>
+            Don&apos;t have an account?{' '}
+            <Link href="/signup" className="font-medium text-[var(--accent-bronze)] hover:underline">
+              Sign up
+            </Link>
           </div>
-        </div>
+        </motion.div>
       </main>
     </div>
   );

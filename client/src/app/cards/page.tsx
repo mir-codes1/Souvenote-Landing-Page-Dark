@@ -71,12 +71,13 @@ export default function CardsPage() {
   }, [activeFilter, search]);
 
   return (
-    <main className="grow flex flex-col bg-white text-[#111111] font-sans">
+    <main className="grow flex flex-col font-sans" style={{ background: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
       <WelcomePopup />
 
       {/* Toast */}
       {toast && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#111111] text-white text-sm px-5 py-3 rounded-lg shadow-lg z-50 transition-all">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 text-sm px-5 py-3 rounded-lg shadow-lg z-50 transition-all"
+          style={{ background: 'var(--bg-cream)', border: '1px solid rgba(183,110,121,0.3)', color: 'var(--text-primary)' }}>
           {toast}
         </div>
       )}
@@ -95,17 +96,18 @@ export default function CardsPage() {
       />
 
       {/* Filter bar */}
-      <div className="border-b border-gray-200 px-6 py-3 flex items-center justify-between">
+      <div className="px-6 py-3 flex items-center justify-between" style={{ background: 'var(--bg-warm)', borderBottom: '1px solid rgba(183,110,121,0.15)' }}>
         <div className="flex space-x-3 overflow-x-auto hide-scrollbar">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveFilter(activeFilter === category ? null : category)}
-              className={`px-4 py-1.5 text-sm font-medium border rounded whitespace-nowrap cursor-pointer transition-colors ${
+              className={`px-4 py-1.5 text-sm font-medium border rounded whitespace-nowrap cursor-pointer transition-all ${
                 activeFilter === category
-                  ? 'bg-[#111111] text-white border-[#111111]'
-                  : 'border-gray-300 text-gray-700 hover:border-gray-800 hover:text-black'
+                  ? 'border-[var(--accent-bronze)] bg-[var(--accent-bronze)]/10'
+                  : 'border-[rgba(183,110,121,0.2)] hover:border-[var(--accent-bronze)]'
               }`}
+              style={{ color: activeFilter === category ? 'var(--accent-bronze)' : 'var(--text-secondary)' }}
             >
               {category}
             </button>
@@ -120,13 +122,16 @@ export default function CardsPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search cards…"
-              className="text-sm border border-gray-200 rounded px-3 py-1 outline-none focus:border-gray-400 w-40 transition-all"
+              className="input-dark text-sm rounded px-3 py-1 w-40 transition-all"
             />
           )}
           <button
             aria-label="Search"
             onClick={() => { setSearchOpen((v) => !v); if (searchOpen) setSearch(''); }}
-            className="text-gray-500 hover:text-black transition-colors cursor-pointer"
+            className="transition-colors cursor-pointer"
+            style={{ color: 'var(--text-muted)' }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent-bronze)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
           >
             <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -138,27 +143,29 @@ export default function CardsPage() {
       {/* Card grid */}
       <div className="p-6 md:p-8 grid grid-cols-1 xl:grid-cols-2 gap-y-16 gap-x-12 max-w-[87.5rem] mx-auto w-full">
         {filteredCards.length === 0 ? (
-          <div className="col-span-full text-center py-20 text-gray-400 text-sm">
+          <div className="col-span-full text-center py-20 text-sm" style={{ color: 'var(--text-muted)' }}>
             No cards found.
           </div>
         ) : (
           filteredCards.map((card) => (
             <div key={card.id} className="flex flex-col">
-              <h3 className="text-base font-semibold mb-4">{card.title}</h3>
+              <h3 className="text-base font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>{card.title}</h3>
 
               {/* Card previews */}
               <div className="flex space-x-6 items-end mb-6">
                 {/* Physical — smaller */}
                 <div className="w-28 shrink-0">
-                  <div className="text-sm font-semibold mb-2">Physical</div>
-                  <div className="w-full aspect-[5/7] bg-[#f4f5f7] border border-gray-200 flex items-center justify-center text-gray-400 text-xs font-medium">
+                  <div className="text-sm font-semibold mb-2" style={{ color: 'var(--text-secondary)' }}>Physical</div>
+                  <div className="w-full aspect-[5/7] flex items-center justify-center text-xs font-medium"
+                    style={{ background: 'var(--bg-cream)', border: '1px solid rgba(183,110,121,0.2)', color: 'var(--text-muted)' }}>
                     5 × 7
                   </div>
                 </div>
                 {/* Digital — larger/dominant */}
                 <div className="flex-1">
-                  <div className="text-sm font-semibold mb-2">Digital</div>
-                  <div className="w-full aspect-[9/16] bg-[#f4f5f7] border border-gray-200 flex items-center justify-center text-gray-400 text-xs font-medium">
+                  <div className="text-sm font-semibold mb-2" style={{ color: 'var(--text-secondary)' }}>Digital</div>
+                  <div className="w-full aspect-[9/16] flex items-center justify-center text-xs font-medium"
+                    style={{ background: 'var(--bg-cream)', border: '1px solid rgba(183,110,121,0.2)', color: 'var(--text-muted)' }}>
                     9 × 16
                   </div>
                 </div>
@@ -168,19 +175,19 @@ export default function CardsPage() {
               <div className="flex flex-wrap gap-3">
                 <button
                   onClick={() => handleAction('select')}
-                  className="px-5 py-2.5 bg-[#111111] text-white text-sm font-medium hover:bg-gray-800 transition-colors cursor-pointer"
+                  className="btn-dark-primary px-5 py-2.5 text-sm font-medium cursor-pointer rounded"
                 >
                   Select as is
                 </button>
                 <button
                   onClick={() => handleAction('personalize')}
-                  className="px-5 py-2.5 bg-white border border-gray-300 text-[#111111] text-sm font-medium hover:bg-gray-50 transition-colors cursor-pointer"
+                  className="btn-dark-secondary px-5 py-2.5 text-sm font-medium cursor-pointer rounded"
                 >
                   Personalize
                 </button>
                 <button
                   onClick={() => handleAction('build')}
-                  className="px-5 py-2.5 bg-white border border-gray-300 text-[#111111] text-sm font-medium hover:bg-gray-50 transition-colors cursor-pointer"
+                  className="btn-dark-secondary px-5 py-2.5 text-sm font-medium cursor-pointer rounded"
                 >
                   Build My Own
                 </button>

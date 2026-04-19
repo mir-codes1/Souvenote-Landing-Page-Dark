@@ -44,8 +44,8 @@ export default function FAQAccordion() {
                         initial={false}
                         animate={{ opacity: inView ? 1 : 0 }}
                         transition={{ duration: 0.9, delay: inView ? 0.25 + i * 0.12 : 0 }}
-                        className={`faq-item rounded-2xl transition-all duration-400 ${
-                            isOpen ? 'faq-item-open' : 'bg-white/50 hover:bg-white/70'
+                        className={`faq-item rounded-2xl border border-[rgba(232,234,238,0.06)] transition-all duration-400 ${
+                            isOpen ? 'faq-item-open' : 'bg-[#0C0C10]/60 hover:bg-[#101014]/80'
                         }`}
                     >
                         <button
@@ -55,18 +55,18 @@ export default function FAQAccordion() {
                             <span
                                 className={`${lora.className} text-[0.9375rem] sm:text-[1.0625rem] leading-snug font-light tracking-[-0.01em] transition-colors duration-300 pr-6 ${
                                     isOpen
-                                        ? 'text-[var(--accent-umber)]'
-                                        : 'text-[var(--text-primary)] group-hover:text-[var(--accent-umber)]'
+                                        ? 'text-[var(--gold-hi)]'
+                                        : 'text-[var(--platinum-hi)] group-hover:text-[var(--platinum-hi)]'
                                 }`}
                                 >
                                 {q}
                             </span>
                             <div className="flex-shrink-0 relative w-6 h-6 flex items-center justify-center">
                                 {/* Horizontal line */}
-                                <span className="absolute w-4 h-[0.0938rem] bg-[var(--accent-bronze)] rounded-full transition-all duration-300" />
+                                <span className="absolute w-4 h-[0.0938rem] bg-[var(--gold)] rounded-full transition-all duration-300" />
                                 {/* Vertical line — rotates to 0 when open */}
                                 <span
-                                    className={`absolute w-4 h-[0.0938rem] bg-[var(--accent-bronze)] rounded-full transition-all duration-400 ${
+                                    className={`absolute w-4 h-[0.0938rem] bg-[var(--gold)] rounded-full transition-all duration-400 ${
                                         isOpen ? 'rotate-0 opacity-0' : 'rotate-90 opacity-100'
                                     }`}
                                 />

@@ -23,49 +23,60 @@ const CARDS = [
     { id: 6, occasion: 'Just Because', songTitle: 'Thinking of You' },
 ];
 
-const CARD_COLORS = [
-    { from: '#F4E2D8', to: '#D4BB7E' },
-    { from: '#E8CFC1', to: '#9E7E4F' },
-    { from: '#FDF8F4', to: '#EEDDAA' },
-    { from: '#F4E2D8', to: '#9E7E4F' },
-    { from: '#EEDDAA', to: '#D4BB7E' },
-    { from: '#E8CFC1', to: '#D4BB7E' },
+// Softened metallic gradients — silver / gold / rose gold cycling
+const CARD_IMAGE_GRAD = [
+    'linear-gradient(155deg, #22262E 0%, #464A54 18%, #707880 32%, #909499 44%, #A8ABB2 52%, #8E9298 60%, #686C74 72%, #383D46 84%, #1E2228 100%)',
+    'linear-gradient(155deg, #1E1C10 0%, #3C3218 18%, #6E561E 32%, #9A7828 44%, #B89038 52%, #9A7825 60%, #6E5618 72%, #38300E 84%, #1A1808 100%)',
+    'linear-gradient(155deg, #221820 0%, #3A2430 18%, #724858 32%, #9E7080 44%, #B88890 52%, #9A7078 60%, #704858 72%, #342030 84%, #1C1018 100%)',
+    'linear-gradient(155deg, #22262E 0%, #464A54 18%, #707880 32%, #909499 44%, #A8ABB2 52%, #8E9298 60%, #686C74 72%, #383D46 84%, #1E2228 100%)',
+    'linear-gradient(155deg, #1E1C10 0%, #3C3218 18%, #6E561E 32%, #9A7828 44%, #B89038 52%, #9A7825 60%, #6E5618 72%, #38300E 84%, #1A1808 100%)',
+    'linear-gradient(155deg, #221820 0%, #3A2430 18%, #724858 32%, #9E7080 44%, #B88890 52%, #9A7078 60%, #704858 72%, #342030 84%, #1C1018 100%)',
 ];
 
 const CARD_ICONS = [
-    <svg key="birthday" className="w-10 h-10" fill="none" stroke="var(--accent-umber)" strokeWidth="1.2" viewBox="0 0 24 24">
-        <path d="M2 18h20v4H2zM4 14h16v4H4z" /><path d="M6 10h12v4H6z" /><path d="M12 2v4M8 4v2M16 4v2" /><circle cx="12" cy="2" r="1" fill="var(--accent-gold)" />
+    <svg key="birthday" className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24">
+        <path d="M2 18h20v4H2zM4 14h16v4H4z" /><path d="M6 10h12v4H6z" /><path d="M12 2v4M8 4v2M16 4v2" /><circle cx="12" cy="2" r="1" fill="currentColor" />
     </svg>,
-    <svg key="anniversary" className="w-10 h-10" fill="none" stroke="var(--accent-umber)" strokeWidth="1.2" viewBox="0 0 24 24">
+    <svg key="anniversary" className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24">
         <circle cx="9" cy="12" r="5" /><circle cx="15" cy="12" r="5" />
     </svg>,
-    <svg key="thankyou" className="w-10 h-10" fill="none" stroke="var(--accent-umber)" strokeWidth="1.2" viewBox="0 0 24 24">
+    <svg key="thankyou" className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24">
         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
     </svg>,
-    <svg key="getwell" className="w-10 h-10" fill="none" stroke="var(--accent-umber)" strokeWidth="1.2" viewBox="0 0 24 24">
+    <svg key="getwell" className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24">
         <circle cx="12" cy="12" r="5" /><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
     </svg>,
-    <svg key="congrats" className="w-10 h-10" fill="none" stroke="var(--accent-umber)" strokeWidth="1.2" viewBox="0 0 24 24">
+    <svg key="congrats" className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24">
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
     </svg>,
-    <svg key="justbecause" className="w-10 h-10" fill="none" stroke="var(--accent-umber)" strokeWidth="1.2" viewBox="0 0 24 24">
+    <svg key="justbecause" className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24">
         <rect x="3" y="8" width="18" height="13" rx="2" /><path d="M12 8v13M3 13h18" /><path d="M12 8c-2-3-6-3-6 0s4 0 6 0c2-3 6-3 6 0s-4 0-6 0" />
     </svg>,
 ];
 
-const CARD_STYLE = {
-    background: 'linear-gradient(180deg, var(--bg-cream) 0%, #fff 100%)',
-    boxShadow: '0 0.25rem 1.5rem rgba(74,59,34,0.07)',
-    borderTop: '0.125rem solid var(--accent-gold)',
-    borderLeft: '0.0625rem solid rgba(212,187,126,0.1)',
-    borderRight: '0.0625rem solid rgba(212,187,126,0.1)',
-    borderBottom: '0.1875rem solid var(--accent-bronze)',
-};
+// Silver / gold / rose gold cycling
+const CARD_THEMES = [
+    { accent: '#B4B8C4', faint: 'rgba(180,184,196,0.15)' },
+    { accent: '#C8A030', faint: 'rgba(200,160,48,0.15)'  },
+    { accent: '#C89890', faint: 'rgba(200,152,144,0.15)' },
+    { accent: '#B4B8C4', faint: 'rgba(180,184,196,0.15)' },
+    { accent: '#C8A030', faint: 'rgba(200,160,48,0.15)'  },
+    { accent: '#C89890', faint: 'rgba(200,152,144,0.15)' },
+];
+
+const getCardStyle = (idx: number) => ({
+    background: 'linear-gradient(180deg, #0E0F14 0%, #080809 100%)',
+    boxShadow: `0 0.5rem 2rem rgba(0,0,0,0.55), 0 0 0 1px ${CARD_THEMES[idx].faint}`,
+    borderTop: `0.125rem solid ${CARD_THEMES[idx].accent}`,
+    borderLeft: 'none',
+    borderRight: 'none',
+    borderBottom: 'none',
+});
 
 const ARROW_STYLE = {
-    background: 'linear-gradient(135deg, rgba(253,248,244,0.9), rgba(244,226,216,0.9))',
+    background: 'linear-gradient(135deg, rgba(11,11,15,0.95), rgba(16,16,20,0.95))',
     backdropFilter: 'blur(0.5rem)',
-    boxShadow: '0 0.25rem 1.25rem rgba(74,59,34,0.1)',
+    boxShadow: '0 0.25rem 1.25rem rgba(0,0,0,0.4)',
 };
 
 export default function CardCarousel({
@@ -77,7 +88,16 @@ export default function CardCarousel({
     const [playingId, setPlayingId] = useState<number | null>(null);
     const trackRef = useRef<HTMLDivElement>(null);
     const middleCardRef = useRef<HTMLDivElement>(null);
-    const [slideOffset, setSlideOffset] = useState(263); // default: 243 + 20
+    const [slideOffset, setSlideOffset] = useState(263);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(true);
+
+    const updateScrollState = () => {
+        const el = trackRef.current;
+        if (!el) return;
+        setCanScrollLeft(el.scrollLeft > 1);
+        setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
+    };
 
     // Measure actual card width + gap for accurate slide offset
     useEffect(() => {
@@ -87,8 +107,18 @@ export default function CardCarousel({
         }
     }, []);
 
+    useEffect(() => {
+        const el = trackRef.current;
+        if (!el) return;
+        el.addEventListener('scroll', updateScrollState, { passive: true });
+        updateScrollState();
+        return () => el.removeEventListener('scroll', updateScrollState);
+    }, [carouselActive]);
+
     const scroll = (direction: 'left' | 'right') => {
         if (!trackRef.current) return;
+        if (direction === 'left' && !canScrollLeft) return;
+        if (direction === 'right' && !canScrollRight) return;
         trackRef.current.scrollBy({
             left: direction === 'left' ? -288 : 288,
             behavior: 'smooth',
@@ -100,34 +130,42 @@ export default function CardCarousel({
         <>
             <div
                 className="w-full aspect-[5/7] flex flex-col items-center justify-center relative overflow-hidden"
-                style={{
-                    background: `linear-gradient(155deg, ${CARD_COLORS[idx].from}, ${CARD_COLORS[idx].to})`,
-                }}
+                style={{ background: CARD_IMAGE_GRAD[idx] }}
             >
+                {/* Specular highlight band — same technique as the hero card mocks */}
                 <div
-                    className="absolute inset-0 opacity-[0.06]"
+                    className="absolute inset-0 pointer-events-none"
                     style={{
-                        backgroundImage: `repeating-linear-gradient(-45deg, transparent, transparent 0.5rem, rgba(255,255,255,0.5) 0.5rem, rgba(255,255,255,0.5) 0.5625rem)`,
+                        background: 'linear-gradient(110deg, transparent 28%, rgba(255,255,255,0.18) 42%, rgba(255,255,255,0.28) 48%, rgba(255,255,255,0.18) 54%, transparent 68%)',
                     }}
                 />
+                {/* Edge vignette */}
                 <div
-                    className="absolute inset-0 opacity-30"
+                    className="absolute inset-0 pointer-events-none"
                     style={{
-                        background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), transparent 60%)',
+                        background: 'radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.35) 100%)',
                     }}
                 />
                 <div className="relative z-10 flex flex-col items-center gap-3">
-                    <div className="w-[4.5rem] h-[4.5rem] rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/25 group-hover:scale-105 transition-transform duration-500">
+                    <div
+                        className="w-[4.5rem] h-[4.5rem] rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-500"
+                        style={{
+                            background: 'rgba(0,0,0,0.35)',
+                            border: `1px solid ${CARD_THEMES[idx].accent}`,
+                            boxShadow: `0 0 12px ${CARD_THEMES[idx].faint}`,
+                            color: CARD_THEMES[idx].accent,
+                        }}
+                    >
                         {CARD_ICONS[idx]}
                     </div>
-                    <div className="w-12 h-[0.0938rem] rounded-full bg-white/30" />
+                    <div className="w-12 h-px rounded-full" style={{ background: `linear-gradient(to right, transparent, ${CARD_THEMES[idx].accent}, transparent)` }} />
                 </div>
             </div>
 
             <div className="px-5 pt-4 pb-5">
                 <div
-                    className="text-[0.5625rem] font-black uppercase tracking-[0.25em] text-[var(--accent-bronze)] mb-2.5"
-                    style={{ fontFamily: 'var(--font-poppins, sans-serif)' }}
+                    className="text-[0.5625rem] font-black uppercase tracking-[0.25em] mb-2.5"
+                    style={{ color: CARD_THEMES[idx].accent, fontFamily: 'var(--font-poppins, sans-serif)' }}
                 >
                     {card.occasion}
                 </div>
@@ -142,16 +180,16 @@ export default function CardCarousel({
                         style={{
                             background:
                                 playingId === card.id
-                                    ? 'linear-gradient(135deg, var(--accent-gold), var(--accent-bronze))'
-                                    : 'linear-gradient(135deg, var(--bg-primary), var(--accent-champagne))',
+                                    ? 'linear-gradient(135deg, var(--gold-hi), var(--gold))'
+                                    : 'linear-gradient(135deg, var(--platinum-hi), var(--platinum-mid))',
                         }}
                     >
                         {playingId === card.id ? (
-                            <svg className="w-2.5 h-2.5" fill="var(--accent-umber)" viewBox="0 0 24 24">
+                            <svg className="w-2.5 h-2.5" fill="#0B0B0F" viewBox="0 0 24 24">
                                 <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
                             </svg>
                         ) : (
-                            <svg className="w-2.5 h-2.5 ml-[0.0625rem]" fill="var(--accent-umber)" viewBox="0 0 24 24">
+                            <svg className="w-2.5 h-2.5 ml-[0.0625rem]" fill="#0B0B0F" viewBox="0 0 24 24">
                                 <polygon points="5,3 19,12 5,21" />
                             </svg>
                         )}
@@ -167,8 +205,8 @@ export default function CardCarousel({
                                     style={{
                                         height: `${heights[j]}px`,
                                         background: isActive
-                                            ? 'linear-gradient(to top, var(--accent-bronze), var(--accent-gold))'
-                                            : 'var(--bg-primary)',
+                                            ? CARD_THEMES[idx].accent
+                                            : 'var(--platinum-lo)',
                                         opacity: isActive ? 1 : 0.6,
                                     }}
                                 />
@@ -176,14 +214,14 @@ export default function CardCarousel({
                         })}
                     </div>
                     <span
-                        className="text-[0.5625rem] text-[var(--text-muted)] tabular-nums tracking-wide"
+                        className="text-[0.5625rem] text-[var(--platinum-mid)] tabular-nums tracking-wide"
                         style={{ fontFamily: 'var(--font-poppins, sans-serif)' }}
                     >
                         {playingId === card.id ? '0:12' : '0:00'}
                     </span>
                 </div>
                 <span
-                    className="btn-matte block w-full text-center py-2.5 rounded-full text-[0.6875rem] font-semibold tracking-[0.08em] uppercase cursor-pointer"
+                    className="btn-platinum block w-full text-center py-2.5 rounded-full text-[0.6875rem] font-semibold tracking-[0.08em] uppercase cursor-pointer"
                     style={{ fontFamily: 'var(--font-poppins, sans-serif)' }}
                 >
                     Make one like this
@@ -205,12 +243,12 @@ export default function CardCarousel({
                 onClick={() => scroll('left')}
                 aria-label="Previous cards"
                 className="absolute left-[-0.75rem] sm:left-[-1.5rem] top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 border border-[var(--accent-gold)]/20 hover:border-[var(--accent-gold)]/50 group"
-                style={ARROW_STYLE}
+                style={{ ...ARROW_STYLE, pointerEvents: canScrollLeft ? 'auto' : 'none' }}
                 initial={false}
-                animate={{ opacity: phaseAComplete ? 1 : 0 }}
+                animate={{ opacity: phaseAComplete ? (canScrollLeft ? 1 : 0.2) : 0 }}
                 transition={{ duration: 0.3, delay: phaseAComplete ? 1.3 : 0 }}
             >
-                <svg className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="var(--accent-bronze)" strokeWidth="2.5" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 group-hover:-translate-x-0.5 transition-[transform,stroke] duration-300 stroke-[var(--platinum-mid)] group-hover:stroke-[var(--gold)]" fill="none" strokeWidth="2.5" viewBox="0 0 24 24">
                     <polyline points="15 18 9 12 15 6" />
                 </svg>
             </motion.button>
@@ -243,7 +281,7 @@ export default function CardCarousel({
                             key={CARDS[0].id}
                             className={trioCardClass}
                             style={{
-                                ...CARD_STYLE,
+                                ...getCardStyle(0),
                                 position: 'absolute',
                                 left: 0,
                                 top: 0,
@@ -273,7 +311,7 @@ export default function CardCarousel({
                             ref={middleCardRef}
                             className={trioCardClass}
                             style={{
-                                ...CARD_STYLE,
+                                ...getCardStyle(1),
                                 position: 'relative',
                                 marginLeft: slideOffset,
                                 width: cardWidth,
@@ -291,7 +329,7 @@ export default function CardCarousel({
                             key={CARDS[2].id}
                             className={trioCardClass}
                             style={{
-                                ...CARD_STYLE,
+                                ...getCardStyle(2),
                                 position: 'absolute',
                                 right: 0,
                                 top: 0,
@@ -318,7 +356,7 @@ export default function CardCarousel({
                         <motion.div
                             key={card.id}
                             className={cardClass}
-                            style={CARD_STYLE}
+                            style={getCardStyle(i + 3)}
                             initial={false}
                             animate={{ opacity: carouselActive ? 1 : 0 }}
                             transition={{ duration: 0.4 }}
@@ -334,12 +372,12 @@ export default function CardCarousel({
                 onClick={() => scroll('right')}
                 aria-label="Next cards"
                 className="absolute right-[-0.75rem] sm:right-[-1.5rem] top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 border border-[var(--accent-gold)]/20 hover:border-[var(--accent-gold)]/50 group"
-                style={ARROW_STYLE}
+                style={{ ...ARROW_STYLE, pointerEvents: canScrollRight ? 'auto' : 'none' }}
                 initial={false}
-                animate={{ opacity: phaseAComplete ? 1 : 0 }}
+                animate={{ opacity: phaseAComplete ? (canScrollRight ? 1 : 0.2) : 0 }}
                 transition={{ duration: 0.3, delay: phaseAComplete ? 1.3 : 0 }}
             >
-                <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="var(--accent-bronze)" strokeWidth="2.5" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-[transform,stroke] duration-300 stroke-[var(--platinum-mid)] group-hover:stroke-[var(--gold)]" fill="none" strokeWidth="2.5" viewBox="0 0 24 24">
                     <polyline points="9 18 15 12 9 6" />
                 </svg>
             </motion.button>

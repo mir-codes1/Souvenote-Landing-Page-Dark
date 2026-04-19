@@ -1,5 +1,10 @@
 'use client';
 
+import { Poppins, Cormorant_Garamond } from 'next/font/google';
+
+const poppins = Poppins({ weight: ['200', '400', '600', '700'], subsets: ['latin'], display: 'swap' });
+const cormorant = Cormorant_Garamond({ weight: ['300', '400'], subsets: ['latin'], display: 'swap' });
+
 export type CardAction = 'select' | 'personalize' | 'build';
 export type CardFormat = 'physical' | 'digital';
 
@@ -13,11 +18,15 @@ export default function FormatModal({ open, onClose, onSelect }: Props) {
     if (!open) return null;
 
     return (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-2xl p-8 max-w-md w-full space-y-6">
+        <div className="fixed inset-0 flex items-center justify-center z-50 p-4"
+            style={{ background: 'rgba(0,0,0,0.6)' }}>
+            <div className="rounded-2xl p-8 max-w-md w-full space-y-6"
+                style={{ background: 'var(--bg-warm)', border: '1px solid rgba(183,110,121,0.25)', boxShadow: '0 24px 64px rgba(0,0,0,0.5)' }}>
                 <div className="text-center space-y-2">
-                    <h3 className="font-bold text-xl">Choose your card format</h3>
-                    <p className="text-sm text-gray-500">
+                    <h3 className={`${cormorant.className} italic text-xl font-light`} style={{ color: 'var(--text-primary)' }}>
+                        Choose your card format
+                    </h3>
+                    <p className={`${poppins.className} font-extralight text-sm`} style={{ color: 'var(--text-secondary)' }}>
                         Select whether you want a physical card or digital card
                     </p>
                 </div>
@@ -25,30 +34,38 @@ export default function FormatModal({ open, onClose, onSelect }: Props) {
                 <div className="grid grid-cols-2 gap-4">
                     <button
                         onClick={() => onSelect('physical')}
-                        className="border-2 border-gray-200 rounded-xl p-5 text-left hover:border-black transition-colors space-y-1 group"
+                        className="rounded-xl p-5 text-left transition-all space-y-1 group"
+                        style={{ border: '2px solid rgba(183,110,121,0.2)', background: 'var(--bg-cream)' }}
+                        onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--accent-bronze)')}
+                        onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'rgba(183,110,121,0.2)')}
                     >
-                        <div className="font-semibold text-sm group-hover:text-black transition-colors">
+                        <div className={`${poppins.className} font-semibold text-sm group-hover:text-[var(--accent-bronze)] transition-colors`}
+                            style={{ color: 'var(--text-primary)' }}>
                             Physical Card
                         </div>
-                        <div className="text-xl font-bold">CDN $9.99</div>
-                        <div className="text-xs text-gray-400">includes shipping</div>
+                        <div className={`${poppins.className} text-xl font-bold`} style={{ color: 'var(--text-primary)' }}>CDN $9.99</div>
+                        <div className={`${poppins.className} text-xs`} style={{ color: 'var(--text-muted)' }}>includes shipping</div>
                     </button>
 
                     <button
                         onClick={() => onSelect('digital')}
-                        className="border-2 border-gray-200 rounded-xl p-5 text-left hover:border-black transition-colors space-y-1 group"
+                        className="rounded-xl p-5 text-left transition-all space-y-1 group"
+                        style={{ border: '2px solid rgba(183,110,121,0.2)', background: 'var(--bg-cream)' }}
+                        onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--accent-bronze)')}
+                        onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'rgba(183,110,121,0.2)')}
                     >
-                        <div className="font-semibold text-sm group-hover:text-black transition-colors">
+                        <div className={`${poppins.className} font-semibold text-sm group-hover:text-[var(--accent-bronze)] transition-colors`}
+                            style={{ color: 'var(--text-primary)' }}>
                             Digital Card
                         </div>
-                        <div className="text-xl font-bold">CDN $2.99</div>
-                        <div className="text-xs text-gray-400">instant delivery</div>
+                        <div className={`${poppins.className} text-xl font-bold`} style={{ color: 'var(--text-primary)' }}>CDN $2.99</div>
+                        <div className={`${poppins.className} text-xs`} style={{ color: 'var(--text-muted)' }}>instant delivery</div>
                     </button>
                 </div>
 
                 <button
                     onClick={onClose}
-                    className="w-full text-sm text-gray-400 hover:text-gray-600 transition-colors"
+                    className={`${poppins.className} w-full text-sm transition-colors text-[var(--text-muted)] hover:text-[var(--text-secondary)]`}
                 >
                     Cancel
                 </button>

@@ -78,13 +78,13 @@ export default function GallerySection({
                         style={{
                             height: phaseAComplete ? '100%' : goldLineHeight,
                             background:
-                                'linear-gradient(to bottom, var(--accent-gold), var(--accent-champagne), transparent)',
+                                'linear-gradient(to bottom, var(--gold), var(--platinum-hi), transparent)',
                         }}
                     />
 
                     {/* "Gallery" label — fades in during Phase B */}
                     <motion.p
-                        className={`${poppinsClassName} section-label text-[var(--accent-bronze)] mb-3`}
+                        className={`${poppinsClassName} section-label text-[var(--gold)] mb-3`}
                         initial={false}
                         animate={{ opacity: phaseAComplete ? 1 : 0 }}
                         transition={{ duration: 0.5, delay: phaseAComplete ? 1.1 : 0 }}
@@ -94,16 +94,22 @@ export default function GallerySection({
 
                     {/* Heading — staggered word entrance from behind the line */}
                     <h2
-                        className={`${lobsterClassName} text-[clamp(2.4rem,5vw,4.9rem)] text-[var(--accent-umber)] leading-[1.07] overflow-hidden`}
+                        className={`${lobsterClassName} text-[clamp(2.4rem,5vw,4.9rem)] text-[var(--platinum-hi)] leading-[1.07] overflow-hidden`}
                     >
-                        <span className={`${cormorantClassName} italic`}>
-                            {HEADING_WORDS.map((word, i) => (
+                        {HEADING_WORDS.map((word, i) => {
+                            const isGold = word === "what\u2019s";
+                            const accentClass = isGold
+                                ? `${cormorantClassName} italic text-[var(--gold-hi)]`
+                                : `${cormorantClassName} italic text-metallic-silver`;
+                            return (
                                 <motion.span
                                     key={word}
+                                    className={accentClass}
                                     style={{
                                         display: 'inline-block',
                                         marginRight:
                                             i < HEADING_WORDS.length - 1 ? '0.3em' : 0,
+                                        ...(isGold && { textShadow: '0 0 20px rgba(241,208,116,0.42), 0 0 40px rgba(212,175,55,0.2)' }),
                                     }}
                                     initial={false}
                                     animate={
@@ -119,8 +125,8 @@ export default function GallerySection({
                                 >
                                     {word}
                                 </motion.span>
-                            ))}
-                        </span>
+                            );
+                        })}
                     </h2>
 
                     {/* Subtitle — fades in during Phase B */}
