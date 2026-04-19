@@ -28,7 +28,7 @@ function ButtonColorful({
         >
             {/* Base gradient — always visible */}
             <div
-                className="absolute inset-0 transition-opacity duration-300"
+                className="absolute inset-0 blur transition-opacity duration-300"
                 style={{ background: "linear-gradient(to right, #D4AF37, #F1D074, #D4AF37)" }}
             />
 

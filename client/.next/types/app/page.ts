@@ -1,4 +1,4 @@
-// File: C:\Users\mirzo\Desktop\Souvenote_Folders\DEMOS\First-Prototype\Landing-Page-Demo-1\client\src\app\page.tsx
+// File: C:\Users\mirzo\Desktop\Souvenote_Folders\DEMOS\Dark_OpenEnded\Landing-Page-Demo-1\client\src\app\page.tsx
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

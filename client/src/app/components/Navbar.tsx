@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Poppins, Cormorant_Garamond } from 'next/font/google';
-import { ButtonColorful } from '@/components/ui/button-colorful';
 // Link and usePathname removed — display-only mode
 
 const poppins = Poppins({ weight: ['400', '500', '600'], subsets: ['latin'], display: 'swap' });
@@ -184,11 +183,9 @@ export default function Navbar() {
                 </div>
 
                 {/* Get Started CTA */}
-                <ButtonColorful
-                    label="Get Started"
-                    hideArrow
-                    className={`${poppins.className} hidden sm:inline-flex rounded-full px-4 py-1.5 h-auto text-[10.5px] tracking-[0.10em] uppercase`}
-                />
+                <span className={`${poppins.className} hidden sm:inline-flex btn-matte items-center px-4 py-1.5 rounded-full text-[10.5px] font-semibold tracking-[0.10em] uppercase cursor-pointer`}>
+                    Get Started
+                </span>
 
                 {/* Divider */}
                 <div className="hidden sm:block w-px h-4" style={{ background: 'rgba(232, 234, 238, 0.10)' }} />
