@@ -2367,6 +2367,11 @@
       display: flex;
     }
   }
+  .sm\:inline {
+    @media (width >= 40rem) {
+      display: inline;
+    }
+  }
   .sm\:inline-flex {
     @media (width >= 40rem) {
       display: inline-flex;
@@ -2563,6 +2568,11 @@
       padding-bottom: calc(var(--spacing) * 28);
     }
   }
+  .sm\:pl-3 {
+    @media (width >= 40rem) {
+      padding-left: calc(var(--spacing) * 3);
+    }
+  }
   .sm\:text-\[0\.9375rem\] {
     @media (width >= 40rem) {
       font-size: 0.9375rem;
@@ -2601,6 +2611,11 @@
   .md\:-mt-8 {
     @media (width >= 48rem) {
       margin-top: calc(var(--spacing) * -8);
+    }
+  }
+  .md\:mt-20 {
+    @media (width >= 48rem) {
+      margin-top: calc(var(--spacing) * 20);
     }
   }
   .md\:ml-4 {
@@ -2676,6 +2691,11 @@
   .lg\:ml-12 {
     @media (width >= 64rem) {
       margin-left: calc(var(--spacing) * 12);
+    }
+  }
+  .lg\:block {
+    @media (width >= 64rem) {
+      display: block;
     }
   }
   .lg\:flex {
@@ -2811,6 +2831,11 @@
   .lg\:pb-40 {
     @media (width >= 64rem) {
       padding-bottom: calc(var(--spacing) * 40);
+    }
+  }
+  .lg\:pl-6 {
+    @media (width >= 64rem) {
+      padding-left: calc(var(--spacing) * 6);
     }
   }
   .lg\:text-left {

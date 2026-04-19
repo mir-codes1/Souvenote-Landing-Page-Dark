@@ -229,7 +229,7 @@ export default function Home() {
                                     Log In
                                 </span>
                             </div>
-                            <p className={`${poppins.className} font-extralight reveal-up delay-4 text-[clamp(0.875rem,1.8vw,1.05rem)] text-[var(--platinum-mid)] mt-20 max-w-[500px] mx-auto md:mx-0 leading-relaxed tracking-[0.03em]`}>
+                            <p className={`${poppins.className} font-extralight reveal-up delay-4 text-[clamp(0.875rem,1.8vw,1.05rem)] text-[var(--platinum-mid)] mt-8 md:mt-20 max-w-[500px] mx-auto md:mx-0 leading-relaxed tracking-[0.03em]`}>
                                 Generate personalized cards and custom songs. Because the card you send should be as unique as they are.
                             </p>
                             <p className={`${poppins.className} font-extralight reveal-up delay-5 text-[10px] text-[var(--platinum-mid)] mt-4 md:ml-4 tracking-[0.25em] uppercase`}>
@@ -730,7 +730,7 @@ export default function Home() {
 
             {/* ── Chatbot Widget ── */}
             <div className="relative z-20 max-w-[1440px] mx-auto">
-                <div className="chat-widget absolute -top-8 right-6 sm:right-10 flex items-center gap-2.5 px-5 py-3 pl-3 rounded-full shadow-lg cursor-pointer z-50 border border-[rgba(232,234,238,0.1)]"
+                <div className="chat-widget absolute -top-8 right-6 sm:right-10 flex items-center gap-2.5 px-3 sm:px-5 py-3 sm:pl-3 rounded-full shadow-lg cursor-pointer z-50 border border-[rgba(232,234,238,0.1)]"
                     style={{ background: 'linear-gradient(135deg, rgba(11,11,15,0.95), rgba(16,16,20,0.95))', backdropFilter: 'blur(12px)' }}>
                     <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
                         style={{ background: 'linear-gradient(135deg, var(--rose-gold), var(--gold))' }}>
@@ -738,7 +738,7 @@ export default function Home() {
                             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                         </svg>
                     </div>
-                    <span className={`${poppins.className} text-[11px] font-semibold text-[var(--platinum-hi)] whitespace-nowrap tracking-wide`}>Need help? Chat with us</span>
+                    <span className={`${poppins.className} hidden sm:inline text-[11px] font-semibold text-[var(--platinum-hi)] whitespace-nowrap tracking-wide`}>Need help? Chat with us</span>
                 </div>
             </div>
 

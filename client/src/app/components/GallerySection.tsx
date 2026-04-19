@@ -71,10 +71,10 @@ export default function GallerySection({
         >
             <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-25 items-start">
                 {/* ── Left — section header with animated gold line ── */}
-                <div className="relative pl-6 lg:w-[17.5rem] lg:flex-shrink-0 lg:pt-4 text-center lg:text-left">
+                <div className="relative lg:pl-6 lg:w-[17.5rem] lg:flex-shrink-0 lg:pt-4 text-center lg:text-left">
                     {/* Gold line — real DOM element (replaces ::before) */}
                     <motion.div
-                        className="absolute left-0 top-0 w-[0.125rem]"
+                        className="hidden lg:block absolute left-0 top-0 w-[0.125rem]"
                         style={{
                             height: phaseAComplete ? '100%' : goldLineHeight,
                             background:
